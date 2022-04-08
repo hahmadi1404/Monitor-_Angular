@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="weather-side">
+        <div class="weather-gradient"></div>
+        <div class="time-container">
+          <app-clock-canvas></app-clock-canvas>
+        <h2 class="timeNow">{{dateNow|date:'HH:mm:ss'}}</h2>
+
+        <div class="date-container">
+            
+            <h2 class="dayName">{{dateNow|jalali:['d','ddd']}}</h2>
+            <h2 class="dayofDate">{{dateNow|jalali:['dd','D']}}</h2>
+            <h2 class="monthDate">{{dateNow|jalali:['EEEE','MMMM']}}</h2>
+            <h2 class="yearDate">{{dateNow|jalali:['yyyy','YYYY']}}</h2>
+
+          </div>
+          <div class="monasebat-container">
+            روز علوم آزمایشگاهی، زاد روز حکیم سید اسماعیل جرجانی
+          </div>
+      </div>
+
+    </div>
+</div>

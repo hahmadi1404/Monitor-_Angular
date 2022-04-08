@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%;background-color: black; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+    font-family: vazir;
+    src: url('./assets/fonts/Vazir-Bold.woff2') format('woff2');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+  @font-face {
+    font-family: yekan;
+    src: url('./assets/fonts/Yekan.woff') format('woff');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+html, body { height: 100%;background-color: #343d4b; 
+    overflow: hidden;
+    
+}
+body { margin: 0; font-family: 'vazir',Roboto, "Helvetica Neue", sans-serif; }

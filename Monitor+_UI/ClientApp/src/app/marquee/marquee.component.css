@@ -6,12 +6,14 @@
  .marquee h3 {
    color: antiquewhite;
   position: absolute;
-  width: 100%;
+  width: auto;
   height: 100%;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   margin: 0;
   line-height: 50px;
   text-align: center;
+  white-space: nowrap;
+  font-family: 'vazir';
   /* Starting position */
   -moz-transform:translateX(-100%);
   -webkit-transform:translateX(-100%);

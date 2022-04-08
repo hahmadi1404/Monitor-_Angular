@@ -14,6 +14,9 @@ import { LoginComponent } from './login/login.component';
 import { ClockSnapComponent } from './clocks/clock-snap/clock-snap.component';
 import { ClockHughDaiComponent } from './clocks/clock-hugh-dai/clock-hugh-dai.component';
 import { ClockJoeComponent } from './clocks/clock-joe/clock-joe.component';
+import { DateTimeComponent } from './date-time/date-time.component';
+import { ClockCanvasComponent } from './clocks/clock-canvas/clock-canvas.component';
+import { JalaliPipe } from './shared/jalali.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,10 @@ import { ClockJoeComponent } from './clocks/clock-joe/clock-joe.component';
     MarqueeComponent,
     ClockSnapComponent,
     ClockHughDaiComponent,
-    ClockJoeComponent
+    ClockJoeComponent,
+    DateTimeComponent,
+    ClockCanvasComponent,
+    JalaliPipe,
   ],
   imports: [
     HttpClientModule,
