@@ -1,4 +1,4 @@
 
- <div class="marquee">
- <h3>{{reqService.MarqueeText}} </h3>
+ <div  class="marquee">
+ <h3   #marq [style.--duration]="marq.clientWidth*15+'ms'" >{{reqService.MarqueeText}} </h3>
  </div>
