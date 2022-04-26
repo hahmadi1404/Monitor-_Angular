@@ -19,14 +19,14 @@ namespace Monitor__UI.Controllers
         [HttpGet]
         public ActionResult checkVideo(string user)
         {
-            var media = _context.Media.FirstOrDefault(a => a.FromDate < DateTime.Now && a.ToDate >= DateTime.Now && a.Users.Contains(user));
+            var media = _context.Media.Where(a => a.FromDate < DateTime.Now && a.ToDate >= DateTime.Now && a.Users.Contains(user));
             return Json(media);
         }
 
         [HttpGet]
         public ActionResult checkmarquee(string user)
         {
-            var marquee = _context.Marquees.FirstOrDefault(a => a.FromDate < DateTime.Now && a.ToDate >= DateTime.Now && a.Users.Contains(user));
+            var marquee = _context.Marquees.Where(a => a.FromDate < DateTime.Now && a.ToDate >= DateTime.Now && a.Users.Contains(user));
             return Json(marquee);
         }
     }

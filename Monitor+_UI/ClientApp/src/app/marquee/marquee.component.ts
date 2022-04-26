@@ -16,5 +16,9 @@ export class MarqueeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  widthScreen(){
+
+    return window.screen.width;
+  }
 
 }

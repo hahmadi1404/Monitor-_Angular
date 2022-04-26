@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import { LoginService } from './login.service';
+import { MarqueeResponse } from 'src/interfaces/marquee-response';
+import { MediaResponse } from 'src/interfaces/media-response';
 
 
 
@@ -17,7 +19,10 @@ export class RequestService {
 
   public token: string = "";
   public MarqueeText="";
-  public mediaSource="";
+  public MarqueeTextTemp:MarqueeResponse[]=[];
+  public mediaSource:MediaResponse | undefined;
+  public mediaSourceIndex=-1;
+  public mediaSourceTemp:MediaResponse[]=[];
   userId="";
   checkVideo(){
     return this.http.get( './api/monitorPlus/checkVideo?user=' +this.loginService.getCookie("user") , { headers: { "Authorization": `Bearer ${this.loginService.getCookie("token") }` } });

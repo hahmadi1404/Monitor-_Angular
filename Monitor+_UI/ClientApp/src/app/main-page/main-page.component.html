@@ -14,8 +14,8 @@
 <app-date-time   style="position:absolute;right:0;top:0;height:100%;width:14%;"></app-date-time>
 
 <!-- <div > -->
-  <video style="width:86%;height:calc(100% - 60px); background-color: black;display: block;" preload="auto" loop  #videoPlayer>
-    <source  [src]="reqService.mediaSource" type="video/mp4" >
+  <video (ended)="ended()" style="width:86%;height:calc(100% - 60px); background-color: black;display: block;" preload="auto"   #videoPlayer>
+    <source   [src]="'./media/'+reqService.mediaSource?.fileName" type="video/mp4" >
   </video>
 <!-- </div> -->
 <div class="subtitle" style="font-family: 'vazir';">

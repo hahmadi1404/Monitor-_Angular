@@ -13,8 +13,80 @@
     /* font-weight: normal;
     font-style: normal; */
   }
-html, body { height: 100%;background-color: #343d4b; 
+
+  @font-face {
+    font-family: koodak;
+    src: url('./assets/fonts/Koodak.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+  @font-face {
+    font-family: lotus;
+    src: url('./assets/fonts/Lotus.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+  @font-face {
+    font-family: nazanin;
+    src: url('./assets/fonts/Nazanin.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+  @font-face {
+    font-family: titr;
+    src: url('./assets/fonts/Titr.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+
+  @font-face {
+    font-family: traffic;
+    src: url('./assets/fonts/Traffic.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+  @font-face {
+    font-family: yagut;
+    src: url('./assets/fonts/Yagut.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+  @font-face {
+    font-family: zar;
+    src: url('./assets/fonts/Zar.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+  @font-face {
+    font-family: danstevis;
+    src: url('./assets/fonts/danstevis.otf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+
+  @font-face {
+    font-family: gandom;
+    src: url('./assets/fonts/Gandom.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+
+  @font-face {
+    font-family: rezvan;
+    src: url('./assets/fonts/Rezvan-fat.ttf') format('ttf');
+    /* font-weight: normal;
+    font-style: normal; */
+  }
+html, body { height: 100%;background-color: #343d4b;
     overflow: hidden;
-    
+
 }
 body { margin: 0; font-family: 'vazir',Roboto, "Helvetica Neue", sans-serif; }

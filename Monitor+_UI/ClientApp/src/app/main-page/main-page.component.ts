@@ -18,21 +18,26 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     setInterval(() => {
 
       this.reqService.checkVideo().subscribe(async (data:any) => {
-        data=<MediaResponse>data;
+        // console.log(data);
         if(data != null ){
-
-          if("./media/"+data.fileName!=this.reqService.mediaSource){
-            this.reqService.mediaSource="./media/"+data.fileName;
-            this.videoplayer.nativeElement.load();
-            await this.delay(500);
-            this.videoplayer.nativeElement.play();
-
-          }
+          let a=<MediaResponse[]>data;
+          if(JSON.stringify(a) != JSON.stringify(this.reqService.mediaSourceTemp) ){
+            console.log("a!=this.reqService.mediaSourceTemp");
+          this.reqService.mediaSourceTemp=a;
+          this.reqService.mediaSource=this.reqService.mediaSourceTemp[0];
+          this.reqService.mediaSourceIndex=0;
+          this.videoplayer.nativeElement.load();
+          await this.delay(500);
+          this.videoplayer.nativeElement.play();
         }else{
-          this.reqService.mediaSource="";
+
+        }
+        }else{
+          this.reqService.mediaSourceTemp=[];
           this.videoplayer.nativeElement.load();
           this.videoplayer.nativeElement.play();
         }
@@ -40,16 +45,48 @@ export class MainPageComponent implements OnInit {
 
 
       this.reqService.checkmarquee().subscribe((data:any) => {
-        data=<MarqueeResponse>data;
+        // console.log("m: "+data);
         if(data != null ){
+          let a=<MarqueeResponse[]>data;
+          if(a!=this.reqService.MarqueeTextTemp){
+            this.reqService.MarqueeText="";
+          a.forEach((element,index) => {
+            this.reqService.MarqueeText+= element.text ;
+            if(index!=a.length-1 && a.length>1){this.reqService.MarqueeText+=
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+            +"******"
+            +"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+          }
+          });
+          this.reqService.MarqueeTextTemp=a;
+        }else{
 
-          this.reqService.MarqueeText=data.text;
+        }
 
         }else{
           this.reqService.MarqueeText="";
         }
       });
     },6000);
+
+
+
+  }
+
+  async ended(){
+    // alert("ended");
+    // console.log(this.reqService.mediaSourceTemp.length-1);
+    // console.log(this.reqService.mediaSourceIndex);
+    if(this.reqService.mediaSourceTemp.length-1 >  this.reqService.mediaSourceIndex){
+      this.reqService.mediaSource=this.reqService.mediaSourceTemp[this.reqService.mediaSourceIndex+1];
+      this.reqService.mediaSourceIndex+=1;
+    }else{
+      this.reqService.mediaSource=this.reqService.mediaSourceTemp[0];
+      this.reqService.mediaSourceIndex=0;
+    }
+        this.videoplayer.nativeElement.load();
+        await this.delay(500);
+        this.videoplayer.nativeElement.play();
   }
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );

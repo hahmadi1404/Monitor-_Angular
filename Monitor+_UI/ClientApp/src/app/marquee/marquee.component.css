@@ -4,15 +4,16 @@
   overflow: hidden;
   position: relative;
  }
- .marquee h3 {
+ .marquee .h3 {
    color: antiquewhite;
   position: absolute;
+  min-width: 100%;
   width: auto;
   height: 100%;
   font-size: 1.9rem;
   margin: 0;
   line-height: 50px;
-  text-align: center;
+  text-align: right;
   white-space: nowrap;
   font-family: 'vazir';
   /* Starting position */
@@ -27,11 +28,11 @@
  /* Move it (define the animation) */
  @-moz-keyframes marquee {
   0%   { -moz-transform: translateX(-100%); }
-  100% { -moz-transform: translateX(100%); }
+  100% { -moz-transform: translateX(var(--widthScreen)); }
  }
  @-webkit-keyframes marquee {
   0%   { -webkit-transform: translateX(-100%); }
-  100% { -webkit-transform: translateX(100%); }
+  100% { -webkit-transform: translateX(var(--widthScreen)); }
  }
  @keyframes marquee {
   0%   {
@@ -40,8 +41,8 @@
   transform: translateX(-100%);
   }
   100% {
-  -moz-transform: translateX(100%); /* Firefox bug fix */
-  -webkit-transform: translateX(100%); /* Firefox bug fix */
-  transform: translateX(100%);
+  -moz-transform: translateX(var(--widthScreen)); /* Firefox bug fix */
+  -webkit-transform: translateX(var(--widthScreen)); /* Firefox bug fix */
+  transform: translateX(var(--widthScreen));
   }
  }

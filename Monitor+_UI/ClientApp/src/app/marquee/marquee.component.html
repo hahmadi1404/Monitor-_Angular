@@ -1,4 +1,4 @@
 
  <div  class="marquee">
- <h3   #marq [style.--duration]="marq.clientWidth*15+'ms'" >{{reqService.MarqueeText}} </h3>
+ <div class="h3"   #marq [style.--duration]="(marq.clientWidth*4)*(10/10)+'ms'" [style.--widthScreen]="widthScreen()+'px'" [innerHTML]="reqService.MarqueeText" ></div>
  </div>
